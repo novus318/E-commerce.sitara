@@ -1,0 +1,42 @@
+<header class="header" id="header">
+    <nav class="navbar container">
+        <a href="/" class="brand"><img src="/images/logo.png" class="brand" /></a>
+
+        <div class="burger ps-2" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </div>
+        <span class="overlay"></span>
+        {{#if login}}
+        <div class="menu" id="menu">
+            <ul class="menu-inner">
+                <li class="menu-item"><a class="menu-link" href="/admin" hidden>All products</a></li>
+                <li class="menu-item"><a class="menu-link" href="#"hidden>Orders</a></li>
+                <li class="menu-item"><a class="menu-link" href="#"hidden>Users</a></li>
+                <li class="menu-item"><a class="menu-link" href="/admin">login</a></li>
+            </ul>
+        </div>
+        {{else}}
+        <div class="menu" id="menu">
+            <ul class="menu-inner">
+                <li class="menu-item"><a class="menu-link" href="/admin/viewProduct">All products</a></li>
+                <li class="menu-item"><a class="menu-link" href="#">Orders</a></li>
+                <li class="menu-item"><a class="menu-link" href="#">Users</a></li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/out">
+                        <i class='bx bx-log-out'></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {{/if}}
+        <span><i class="bx bx-search search-toggle pt-2 pe-3" hidden></i></span>
+        <div class="search-block">
+            <form class="search-form">
+                <span><i class="bx bx-arrow-back search-cancel"></i></span>
+                <input type="search" name="search" class="search-input" placeholder="Enter your choice">
+            </form>
+        </div>
+    </nav>
+</header>

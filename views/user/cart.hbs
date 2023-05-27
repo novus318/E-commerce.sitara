@@ -1,0 +1,72 @@
+﻿<section class="mt-5">
+    <div class="container-fluid pt-5">
+        <div class="flex items-center pb-2">
+            <h1 class="text-muted th t">My Cart</h1>
+            <a href="/user/products" class="btn-shop p-2 ms-auto col-2 me-2 t">Shop</a>
+        </div>
+        <div>
+            <form class="mt-2 container-fluid">
+                <div>
+                    <div class="col-9">
+                        <div class="flex mt-2 pb-2 me-2">
+                            <table class="table">
+                                <thead class="t">
+                                    <tr>
+                                        <th scope="col" class="text-muted">Product</th>
+                                        <th scope="col" class="text-muted">Name</th>
+                                        <th scope="col" class="text-muted">Price</th>
+                                        <th scope="col" class="text-muted">Quantity</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {{#each products}}
+                                    <tr class="m">
+
+                                        <td>
+                                            <img class="rounded-3 m-auto" src="/images/product/{{this.product._id}}.jpg" style="width:4em;
+height:4.5em" />
+                                        </td>
+                                        <td><br />{{this.product.Name}}</td>
+
+
+                                        <td><br />{{this.product.Price}}</td>
+                                        <td>
+                                            <br />
+                                            <quantity-input>
+                                                <button name="minus" class="incbt pe-1 ps-1" type="button" id="button" onclick="changeQuantity('{{this._id}}', '{{this.product._id}}', '{{../user._id}}',-1)">
+                                                    -
+                                                </button>
+                                                <span class="input pe-1 ps-1" id="{{this.product._id}}" min="1">{{this.quantity}}</span>
+                                                <button name="plus" class="incbt pe-1 ps-1" type="button" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">
+                                                    +
+                                                </button>
+                                            </quantity-input>
+                                        </td>
+                                        <td><br /><button class="remove p-1" onclick="removeButton('{{this._id}}','{{this.product._id}}')">Remove</button></td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="text-center float-end me-1 mt-4">
+                        <h3 class="t th1 p-3 pb-0 text-muted">Order Summary</h3><hr />
+                        <div class="p-2 mt-4">
+                            <h5 class="float-start text-muted">Total:</h5>
+                            {{#if products}}
+                            <h5 class="float-end me-4 text-muted">₹<span id="total">{{total}}</span></h5><br />
+                            <div class="mt-5">
+                                <a class="button-place t p-2 pe-5 ps-5" href="/placeOrder">Place Order</a>
+                            </div>
+                            {{/if}}
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

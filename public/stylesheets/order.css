@@ -1,0 +1,46 @@
+.no-order{
+    font-weight:900;
+    font-size:300%;
+    margin-top:14%;
+    opacity:50%;
+    font-family:Calibri;
+}
+.view-btn {
+    text-decoration: none;
+    font-family: Calibri;
+    font-size: 150%;
+    color: #808080;
+    border: .1em solid#808080;
+    border-radius:0.2em;
+}
+.view-btn:hover {
+    text-decoration: none;
+ }
+.shop {
+    text-decoration: none;
+    font-size: 125%;
+    color: #808080;
+    border: 0.1em solid #808080;
+
+    font-family: Calibri;
+    border-radius: 0.4em;
+}
+.shop:hover{
+    text-decoration: none;
+    color:#ffffff;
+    background:#808080;
+    font-family:Calibri;
+  
+}
+
+
+.card-head {
+    background: #fefbfc;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em
+}
+.card-item {
+    background: #ffffff;
+    border-bottom-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+}

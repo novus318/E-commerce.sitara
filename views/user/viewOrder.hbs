@@ -1,0 +1,50 @@
+﻿<section class="mt-5 pt-5">
+    <div class="container-fluid">
+        <div>
+            <h1 class="text-muted t b">Your orders</h1>
+        </div><hr />
+        {{#if orders}}
+        {{#each orders}}
+        <div class="card shadow-sm mb-4">
+            <div class="card-head container-fluid d-flex pt-2 m-auto row text-muted">
+                <div class="ps-2 col-6">
+                    <h6>Placed on: {{this.date}}</h6>
+                </div>
+                <div class="col-6">
+                    <h6>Total: ₹{{this.Total}}</h6>
+                </div>
+                <div class="col-6">
+                    <h6>To: {{this.address.fname}} {{this.address.sname}}</h6>
+                </div>
+                <div class="ms-auto pe-3 col-6">
+                    <h6>ID: {{this._id}}</h6>
+                </div>
+            </div>
+            <div class="card-item row container-fluid m-auto text-muted mb-1 pb-2">
+                <div class="col-9">
+                    <div class="mt-2 ps-1">
+                        <h4>Status: {{this.status}}</h4>
+                    </div>
+                </div>
+                <div class="col mt-2">
+                    <h5 class="ps-1">Place: {{this.address.city}}</h5>
+                </div>
+                <div class="mt-4 row">
+                    <div class="mb-2 col-9">
+                        <a href="/orderProducts/{{this._id}}" class="view-btn p-1 ps-4 pe-4 mt-5">view products</a>
+                    </div>
+                    <div class="col mt-2">
+                    <h5 class="ps-1">Payment method: {{this.payment}}</h5>
+                    </div>
+                </div>
+            </div>                
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="text-center">
+            <div class="no-order mb-3 text-muted">No recent Orders</div>
+            <a class="shop p-1 ps-2 pe-2" href="/user/products">Shop now</a>
+        </div>
+        {{/if}}
+    </div>
+</section>

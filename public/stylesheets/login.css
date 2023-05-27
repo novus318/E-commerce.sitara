@@ -1,0 +1,138 @@
+.font {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:700;
+}
+.login {
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: auto;
+}
+.holder-red {
+    background: #FFFFFF;
+    border: 1px solid #f02849;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    border-radius: 6px;
+}
+.err {
+    color: #f02849;
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+    .holder {
+    background: #FFFFFF;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.placeholder1 {
+    text-align: center
+}
+
+.button {
+    background-color: #504c4d;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    box-sizing: content-box;
+    text-decoration:none;
+}
+
+.login-button {
+    text-align: center
+}
+
+.create {
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    background-color: #504c4d;
+    border-color: #504c4d;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: auto;
+}
+
+.create-outer {
+    display: flex;
+}
+
+#forgot1 {
+    text-align: center;
+    padding-bottom: 0
+}
+
+.forgot {
+    color: #504c4d;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.flex {
+    align-items: center;
+    border-bottom: 1px solid #dadde1;
+    display: flex;
+    text-align: center;
+}
+
+/*signup*/
+.he1 {
+    font-size: 2.4em;
+    text-align: center;
+    font-weight: 600;
+    color: grey;
+    font-family:'Trebuchet MS';
+}
+
+.create-form {
+    background-color: #fff;
+    border-radius: 8px 8px 8px 8px;
+    box-sizing: border-box;
+    margin: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.space-holder {
+    border-top: 1px solid #dadde1;
+}
+
+.fname {
+    background: #FFFFFF;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    border-radius: 6px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+
+.sname {
+    background: #FFFFFF;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    border-radius: 6px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+ 
+}
+
+.number-pass {
+    background: #FFFFFF;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    border-radius: 6px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}

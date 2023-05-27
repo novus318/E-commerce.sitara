@@ -1,0 +1,40 @@
+<section class="mt-5 pt-3">
+    <div class="pt-5">
+        <div class="login col-8">
+            <form method="post" action="/user/login">
+                <div class="text-center mt-4 pt-4 he1">
+                    Sign in
+                </div>
+                <div class="placeholder1 pt-4">
+                    {{#if loginErr}}
+                    <input name="email" class="holder-red p-2 col-8 mb-1" type="text" placeholder="Email or Phone number">
+                    <br />
+                    <div class="m-auto mt-0 mb-0 err">
+                        {{loginErr}}
+                    </div>
+                    <input name="password" class="holder-red p-2 col-8" type="password" placeholder="Password">
+                    {{else}}
+                    <input name="email" class="holder p-2 col-8 mb-3" type="text" placeholder="Email or Phone number">
+                    <br />
+                    <input name="password" class="holder p-2 col-8" type="password" placeholder="Password">
+                    {{/if}}
+                    <br>
+                </div>
+                <div class="login-button">
+
+                    <button class="button col-8 mt-4 pt-2 pb-2" type="submit">Log in</button>
+
+                </div>
+                <div id="forgot1" class="pt-3">
+                    <a class="forgot" href="#">Forgotten password?</a>
+                </div>
+                <div class="flex p-2 mb-3">
+
+                </div>
+                <div class="create-outer pb-4 pt-3 text-center">
+                    <a class="create pt-2 pb-2 col-8" role="button" href="/signup">Create new acount</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

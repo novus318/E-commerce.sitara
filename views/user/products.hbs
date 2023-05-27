@@ -1,0 +1,26 @@
+﻿<section class="mt-5 pt-5">
+    <div class="container-fluid">
+
+        <div class="row text-center">
+            {{#each products}}
+            <div class="col mb-5">
+                <div class="card shadow-sm text-muted m-auto" style="width: 14rem;">
+                    <img src="/images/product/{{this._id}}.jpg" style="height:16rem" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0">{{this.Name}}</h5>
+                        <p class="card-text m-1">{{this.Description}}</p>
+                        <div class="d-flex">
+                            <div class="text-muted pt-1">
+                                <h4 class="mt-1 t">₹{{this.Price}}</h4>
+                            </div>
+                            <div class="ms-auto">
+                                <button onclick="addCart('{{this._id}}')" class="btn-add ps-1 pe-1 mt-1"><i class='bx bx-cart-add'></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

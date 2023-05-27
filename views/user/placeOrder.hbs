@@ -1,0 +1,163 @@
+﻿<section class="mt-5 pt-4">
+    <div class="container-fluid pt-3">
+        <a class="back p-1 bx bx-arrow-back" href="/cart"></a>
+        <form class="col-8 m-auto" id="checkout">
+            <div>
+                <h2 class="t b text-muted">Contact</h2>
+                <div class="col-7">
+                    <input type="tel" name="number" placeholder="Phone number" class="form-control" />
+                </div>
+            </div>
+            <div class="mt-2">
+                <h2 class="t b text-muted">Shipping address</h2>
+                <div class="form-row">
+                    <div class=" form-group">
+                        <div class="d-flex">
+                            <input name="fname" class="form-control pt-2 pb-2 ps-3" type="text" placeholder="First name" />
+                            <input name="sname" class="form-control pt-2 pb-2 ps-3 ms-2" type="text" placeholder="Last name" />
+                            <input type="text" name="userId" value="{{user._id}}" hidden/>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input name="address" class="form-control pt-2 pb-2" type="text" placeholder="Adderss" />
+                            <input name="landmark" class="form-control pt-2 pb-2 mt-3" type="text" placeholder="Land mark" />
+                        </div>
+                    </div>
+                    <div class="d-flex mt-2">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="City" name="city">
+                        </div>
+                        <div class="form-group col-3 ms-4">
+                            <select id="inputState" class="form-control"name="state">
+                                <option selected>State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                <option value="Daman and Diu">Daman and Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                                <option value="Puducherry">Puducherry</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                        </div>
+                        <div class="form-group ms-4">
+                            <input type="text" class="form-control" placeholder="Zip" name="pincode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="mt-2 text-center">
+                <h5 class="float-start text-muted">Total:</h5>
+                <h5 class="float-end me-4 text-muted">₹{{total}}</h5><br /><hr />
+                <div>
+                    <h5 class="float-start text-muted">Payment method:</h5><br />
+                    <div class="float-start mt-2 mb-2 text-start">
+                    <input type="radio" class="form-check-input" name="method" value="COD"/>
+                    <span class="">Cash on Delivery</span><br />
+                    <input type="radio" class="form-check-input" name="method" value="Online" />
+                    <span>Online payment</span>
+                    </div><br /><br />
+                    <div class="pb-3">
+                    <hr />
+                    <button type="submit" class="button-place p-1 pe-5 ps-5">Confirm Order</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<script>
+
+    $('#checkout').submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/place-Order',
+            method: 'post',
+            data: $('#checkout').serialize(),
+            success: (response) => {
+                if (response.codSuccess) {
+                    location.href = '/orderPlaced'
+                } else {
+                    razorpayPayment(response)
+                }
+
+            }
+        })
+    })
+    function razorpayPayment(order) {
+        var options = {
+            "key": "rzp_test_MBykg16J56YPby", // Enter the Key ID generated from the Dashboard
+            "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Sitara",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+
+                verifyPayment(response, order)
+            },
+
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9000090000"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+
+    function verifyPayment(payment, order) {
+        $.ajax({
+            url: '/verifyPayment',
+            data: {
+                payment,
+                order
+            },
+            method: 'post',
+            success: (response) => {
+                if (response.status) {
+                    location.href = '/orderPlaced'
+                } else {
+                    location.href = '/orderFailed'
+                }
+            }
+        })
+    }
+
+</script>
