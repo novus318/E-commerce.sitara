@@ -1,9 +1,10 @@
 {
-  "name": "travel",
+  "name": "sitara",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "build":"./app.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -22,5 +23,17 @@
   },
   "devDependencies": {
     "handlebars": "^4.5.0"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novus318/E-commerce.sitara.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/novus318/E-commerce.sitara/issues"
+  },
+  "homepage": "https://github.com/novus318/E-commerce.sitara#readme",
+  "description": ""
 }
